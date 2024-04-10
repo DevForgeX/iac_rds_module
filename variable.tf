@@ -30,7 +30,7 @@ variable "database_cluster_db_username" {
 
 variable "database_cluster_db_password" {
   type = string
-  default = "foobarbar"
+  default = "foobarbar12345"
   description = "Default DB Password"
 }
 
@@ -78,7 +78,7 @@ variable "database_cluster_delete_protection" {
 
 variable "database_cluster_cloudwatch_log_exports" {
   type = list(string)
-  default = ["postgresql", "audit", "slowquery"]
+  default = ["postgresql"]
   description = "Default Logs Type To Send To Cloudwatch"
 }
 
@@ -111,4 +111,20 @@ variable "database_cluster_storage_encrypted" {
   type = bool
   default = false
   description = "Enable encryption for DB storage"
+}
+
+variable "database_cluster_instance_count" {
+  type = number
+  default = 1
+  description = "Default value for number of DB Instances"
+}
+
+variable "database_cluster_instance_identifier_prefix" {
+  type = string
+  default = "odoo-cluster-instance"
+}
+
+variable "database_cluster_instance_class" {
+  type = string
+  default = "t3.nano"
 }

@@ -35,3 +35,19 @@ resource "aws_rds_cluster" "main" {
     }
   )
 }
+
+resource "aws_rds_cluster_instance" "cluster_instances" {
+  count              = var.database_cluster_instance_count
+  identifier         = "${var.database_cluster_instance_identifier_prefix}-${count.index}"
+  cluster_identifier = aws_rds_cluster.main.id
+  instance_class     = var.database_cluster_instance_class
+  engine             = aws_rds_cluster.main.engine
+  engine_version     = aws_rds_cluster.main.engine_version
+
+  tags = merge(
+    var.tags,
+    {
+      Name = "${var.global_var_org_tag}-${var.global_var_product_tag}-${var.global_var_environment_tag}-subnet-group"
+    }
+  )
+}
