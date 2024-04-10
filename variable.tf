@@ -126,5 +126,5 @@ variable "database_cluster_instance_identifier_prefix" {
 
 variable "database_cluster_instance_class" {
   type = string
-  default = "t3.nano"
+  default = "db.t3.medium"
 }

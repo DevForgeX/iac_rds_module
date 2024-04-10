@@ -25,7 +25,8 @@ resource "aws_rds_cluster" "main" {
   backup_retention_period = var.database_cluster_backup_retention_period
   preferred_backup_window = var.database_cluster_preferrred_backup_window
   storage_encrypted = var.database_cluster_storage_encrypted
-  # vpc_security_group_ids = var.database_cluster_vpc_security_group_ids
+  vpc_security_group_ids = var.database_cluster_vpc_security_group_ids
+
 
 
     tags = merge(
