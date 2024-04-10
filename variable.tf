@@ -6,7 +6,7 @@ variable "database_subnet_group_name" {
 
 variable "database_cluster_identidier" {
   type = string
-  default = "Odoo-PostGres_Cluster"
+  default = "odoo-postgres-cluster"
   description = "Default DB Cluster Identifier"
 }
 
@@ -95,47 +95,20 @@ variable "database_cluster_backup_retention_period" {
 }
 
 variable "database_cluster_preferrred_backup_window" {
-  type = number
-  default = 5
+  type = string
+  default = "11:00-00:00"
   description = "Default Data Retention Period"
 }
 
 
-
-
-
-
-
-
-
-
-variable "database_parameter_group_name" {
-  type = string
-  default = "default.mysql5.7"
-  description = "Default DB Parameter Group Name"
+variable "database_cluster_vpc_security_group_ids" {
+  type = list(string)
+  default = [ "sg-0b560917e4287612b" ]
+  description = "List Of Security Group For DB Cluster"
 }
 
-variable "database_termination_skip_final_snapshot" {
+variable "database_cluster_storage_encrypted" {
   type = bool
   default = false
-  description = "Skip Final DB Snapshot On DB Termination"
+  description = "Enable encryption for DB storage"
 }
-
-variable "database_auto_minor_version_upgrade" {
-  type = bool
-  default = true
-  description = "Automatic Trigger For Minor DB Versions Upgrade"
-}
-
-variable "database_multi_az_enabled" {
-  type = bool
-  default = true
-  description = "Trigger to enable MultiAZ Deployment For DB"
-}
-
-variable "database_storage_encryption_enabled" {
-  type = bool
-  default = true
-  description = "Trigger to enable Storage Encryption For DB"
-}
-
