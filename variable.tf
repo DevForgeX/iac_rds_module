@@ -136,5 +136,5 @@ variable "database_cluster_final_snapshot_identifier" {
 
 variable "database_cluster_skip_final_snapshot" {
   type = bool
-  default = false
+  default = true
 }
