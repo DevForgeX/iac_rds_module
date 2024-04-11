@@ -134,3 +134,12 @@ variable "database_instance_storage_type" {
   default = "gp3"
 }
 
+variable "database_instance_parameter_group_family" {
+  type = string
+  default = "postgres16"
+}
+
+variable "database_instance_parameter_group_lifecycle_create_before_destroy" {
+  type = bool
+  default = true
+}
