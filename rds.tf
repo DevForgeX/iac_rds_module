@@ -21,7 +21,7 @@ resource "aws_db_instance" "main" {
   db_name                 = var.database_db_name
   username                = var.database_instance_db_username
   password                = var.database_instance_db_password
-  parameter_group_name    = var.db_instance_parameter_group_name
+  parameter_group_name    = aws_db_parameter_group.main.name
   backup_retention_period = var.database_instance_backup_retention_period
   vpc_security_group_ids  = var.database_instance_vpc_security_group_ids
   db_subnet_group_name    = aws_db_subnet_group.main.name
