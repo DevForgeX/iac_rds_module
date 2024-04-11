@@ -30,6 +30,7 @@ resource "aws_rds_cluster" "main" {
   skip_final_snapshot = var.database_cluster_skip_final_snapshot
   allocated_storage = var.database_cluster_allocated_storage
   storage_type = var.database_cluster_storage_type
+  db_cluster_instance_class = var.database_cluster_instance_class
 
 
 
