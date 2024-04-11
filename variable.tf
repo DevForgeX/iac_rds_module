@@ -16,6 +16,11 @@ variable "database_cluster_engine" {
   description = "Default Cluster Engine"
 }
 
+variable "database_cluster_engine_version" {
+  type = string
+  default = "16"
+}
+
 variable "database_db_name" {
   type = string
   default = "odoo"

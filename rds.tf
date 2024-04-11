@@ -14,6 +14,7 @@ resource "aws_rds_cluster" "main" {
     # for_each = data.aws_availability_zones.main
   cluster_identifier      = var.database_cluster_identidier
   engine                  = var.database_cluster_engine
+  engine_version = var.database_cluster_engine_version
   availability_zones      =   [for az in data.aws_availability_zones.main.names : az]              # ["us-west-2a", "us-west-2b", "us-west-2c"]
   database_name           = var.database_db_name
   master_username         = var.database_cluster_db_username
