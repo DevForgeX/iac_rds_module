@@ -3,6 +3,6 @@ resource "aws_db_parameter_group" "main" {
   family = var.database_instance_parameter_group_family
 
   lifecycle {
-    create_before_destroy = var.database_instance_parameter_group_lifecycle_create_before_destroy
+    create_before_destroy = true
   }
 }
