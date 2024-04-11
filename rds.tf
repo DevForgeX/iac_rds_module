@@ -28,6 +28,8 @@ resource "aws_rds_cluster" "main" {
   vpc_security_group_ids = var.database_cluster_vpc_security_group_ids
   final_snapshot_identifier = var.database_cluster_final_snapshot_identifier
   skip_final_snapshot = var.database_cluster_skip_final_snapshot
+  allocated_storage = var.database_cluster_allocated_storage
+  storage_type = var.database_cluster_storage_type
 
 
 

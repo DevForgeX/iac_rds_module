@@ -138,3 +138,13 @@ variable "database_cluster_skip_final_snapshot" {
   type = bool
   default = true
 }
+
+variable "database_cluster_allocated_storage" {
+  type = number
+  default = 10
+}
+
+variable "database_cluster_storage_type" {
+  type = string
+  default = "gp3"
+}
