@@ -26,6 +26,8 @@ resource "aws_rds_cluster" "main" {
   preferred_backup_window = var.database_cluster_preferrred_backup_window
   storage_encrypted = var.database_cluster_storage_encrypted
   vpc_security_group_ids = var.database_cluster_vpc_security_group_ids
+  final_snapshot_identifier = var.database_cluster_final_snapshot_identifier
+  skip_final_snapshot = var.database_cluster_skip_final_snapshot
 
 
 

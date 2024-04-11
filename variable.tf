@@ -128,3 +128,13 @@ variable "database_cluster_instance_class" {
   type = string
   default = "db.t3.medium"
 }
+
+variable "database_cluster_final_snapshot_identifier" {
+  type = string
+  default = "odoo-final-rds-snapshot"
+}
+
+variable "database_cluster_skip_final_snapshot" {
+  type = bool
+  default = false
+}
