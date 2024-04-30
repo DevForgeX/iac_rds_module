@@ -31,6 +31,7 @@ resource "aws_db_instance" "main" {
   storage_encrypted = var.database_instance_storage_encrypted
   # final_snapshot_identifier = var.database_instance_final_snapshot_identifier
   storage_type = var.database_instance_storage_type
+  publicly_accessible = true
 
   timeouts {
     create = "1h"
