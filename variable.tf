@@ -15,11 +15,11 @@ variable "database_instance_engine_version" {
   default = "16"
 }
 
-variable "database_db_name" {
-  type = string
-  default = "odoo"
-  description = "Dafault Database Name"
-}
+# variable "database_db_name" {
+#   type = string
+#   default = "odoo"
+#   description = "Dafault Database Name"
+# }
 
 variable "database_instance_db_username" {
   type = string
@@ -60,7 +60,7 @@ variable "global_var_org_tag" {
 
 variable "database_subnet_group_subnet_ids" {
   type = list(string)
-  default = [ "subnet-0bff39194476e14be", "subnet-0179e0979ca6b0163", "	subnet-02c3bbb6cf1005d26" ]
+  default = [ "subnet-01004b3aa01205cb3", "subnet-08bd9f5e0ddb04a3b", "subnet-03ca7da626b601c54" ]
 }
 
 variable "database_instance_delete_protection" {
@@ -114,10 +114,10 @@ variable "database_instance_class" {
   default = "db.t3.medium"
 }
 
-variable "database_instance_final_snapshot_identifier" {
-  type = string
-  default = "odoo-final-rds-snapshot"
-}
+# variable "database_instance_final_snapshot_identifier" {
+#   type = string
+#   default = "odoo-final-rds-snapshot"
+# }
 
 variable "database_instance_skip_final_snapshot" {
   type = bool

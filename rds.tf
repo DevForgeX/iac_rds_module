@@ -18,7 +18,7 @@ resource "aws_db_instance" "main" {
   instance_class          = var.database_instance_class
   allocated_storage       = var.database_instance_allocated_storage
   max_allocated_storage   = var.database_instance_allocated_storage
-  db_name                 = var.database_db_name
+  # db_name                 = var.database_db_name
   username                = var.database_instance_db_username
   password                = var.database_instance_db_password
   parameter_group_name    = aws_db_parameter_group.main.name
@@ -29,7 +29,7 @@ resource "aws_db_instance" "main" {
   multi_az = var.database_instance_enable_multi_az
   deletion_protection = var.database_instance_delete_protection
   storage_encrypted = var.database_instance_storage_encrypted
-  final_snapshot_identifier = var.database_instance_final_snapshot_identifier
+  # final_snapshot_identifier = var.database_instance_final_snapshot_identifier
   storage_type = var.database_instance_storage_type
 
   timeouts {
