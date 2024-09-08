@@ -191,13 +191,6 @@ variable "rds_sg_egress_cidr" {
 }
 
 
-variable "tags" {
-  type = map(string)
-  default = {
-    CreatedBy = "DevForgeX"
-  }
-}
-
 variable "organisation" {
   type    = string
   default = "GSA"
