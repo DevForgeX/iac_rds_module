@@ -20,7 +20,7 @@ resource "aws_db_instance" "main" {
   max_allocated_storage   = var.database_instance_max_allocated_storage
   # db_name                 = var.database_db_name
   username =  var.database_instance_db_username
-  password = var. var.database_instance_db_password
+  password = var.database_instance_db_password
   parameter_group_name    = aws_db_parameter_group.main.name
   backup_retention_period = var.database_instance_backup_retention_period
   vpc_security_group_ids  = var.database_instance_vpc_security_group_ids
