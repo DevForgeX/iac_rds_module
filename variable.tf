@@ -165,6 +165,10 @@ variable "rds_sg_ingress_description" {
   default = "Ingress details for CoreOps RDS Security Groups"
 }
 
+variable "rds_ingress_cluster_sg" {
+  type = string
+}
+
 variable "rds_sg_egress_from_port" {
   type    = number
   default = 0

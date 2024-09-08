@@ -9,7 +9,7 @@ resource "aws_security_group" "rds-sg" {
     to_port         = var.rds_sg_ingress_to_port
     protocol        = var.rds_sg_ingress_protocol
     description     = var.rds_sg_ingress_description
-    security_groups = [aws_security_group.eks_nodes.id]
+    security_groups = [var.rds_ingress_cluster_sg]
   }
 
   egress {
