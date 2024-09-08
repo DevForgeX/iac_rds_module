@@ -23,7 +23,7 @@ resource "aws_db_instance" "main" {
   password = var.database_instance_db_password
   parameter_group_name    = aws_db_parameter_group.main.name
   backup_retention_period = var.database_instance_backup_retention_period
-  vpc_security_group_ids  = aws_security_group.rds-sg.id
+  vpc_security_group_ids  = [aws_security_group.rds-sg.id]
   db_subnet_group_name    = aws_db_subnet_group.main.name
   skip_final_snapshot     = var.database_instance_skip_final_snapshot
   multi_az = var.database_instance_enable_multi_az
