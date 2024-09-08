@@ -65,7 +65,7 @@ variable "database_subnet_group_subnet_ids" {
 
 variable "database_instance_delete_protection" {
   type = bool
-  default = false
+  default = true
   description = "Delete Protection Trigger For Cluster"
 }
 
@@ -76,7 +76,7 @@ variable "database_instance_enable_multi_az" {
 
 variable "database_instance_backup_retention_period" {
   type = number
-  default = 5
+  default = 7
   description = "Default Data Retention Period"
 }
 
@@ -94,7 +94,7 @@ variable "database_instance_vpc_security_group_ids" {
 
 variable "database_instance_storage_encrypted" {
   type = bool
-  default = false
+  default = true
   description = "Enable encryption for DB storage"
 }
 
@@ -126,7 +126,12 @@ variable "database_instance_skip_final_snapshot" {
 
 variable "database_instance_allocated_storage" {
   type = number
-  default = 10
+  default = 50
+}
+
+variable "database_instance_max_allocated_storage" {
+  type = number
+  default = 1000
 }
 
 variable "database_instance_storage_type" {
@@ -137,4 +142,123 @@ variable "database_instance_storage_type" {
 variable "database_instance_parameter_group_family" {
   type = string
   default = "postgres16"
+}
+
+
+variable "rds_sg_ingress_from_port" {
+  type    = number
+  default = 5432
+}
+
+variable "rds_sg_ingress_to_port" {
+  type    = number
+  default = 5432
+}
+
+variable "rds_sg_ingress_protocol" {
+  type    = string
+  default = "tcp"
+}
+
+variable "rds_sg_ingress_description" {
+  type    = string
+  default = "Ingress details for CoreOps RDS Security Groups"
+}
+
+variable "rds_sg_egress_from_port" {
+  type    = number
+  default = 0
+}
+
+variable "rds_sg_egress_to_port" {
+  type    = number
+  default = 0
+}
+
+variable "rds_sg_egress_protocol" {
+  type    = string
+  default = "-1"
+}
+
+variable "rds_sg_egress_description" {
+  type    = string
+  default = "Egress details for CoreOps RDS Security Groups"
+}
+
+variable "rds_sg_egress_cidr" {
+  type    = string
+  default = "0.0.0.0/0"
+}
+
+
+variable "tags" {
+  type = map(string)
+  default = {
+    CreatedBy = "DevForgeX"
+  }
+}
+
+variable "organisation" {
+  type    = string
+  default = "GSA"
+}
+
+variable "project" {
+  type    = string
+  default = "coreops"
+}
+
+variable "environment" {
+  type    = string
+  default = "prod"
+}
+
+variable "region" {
+  type    = string
+  default = "eu-west-1"
+}
+
+variable "vpc_id" {
+  type    = string
+  default = "vpc-06c2380b5e449ad25"
+}
+
+variable "secretsmanager_secret_id" {
+  type = string
+  default = "gsa-coreops-prod-rds-creds"
+}
+
+variable "database_instance_backup_window" {
+  type    = string
+  default = "00:00-01:00"
+}
+
+variable "database_instance_maintenance_window" {
+  type    = string
+  default = "sat:02:00-sat:03:00"
+}
+
+variable "database_instance_monitoring_role_arn" {
+  type    = string
+  default = "arn:aws:iam::730335333955:role/RDS-Enchanced-Monitoring"
+}
+
+variable "database_instance_monitoring_interval" {
+  type    = number
+  default = 5
+}
+
+variable "database_instance_performance_insights_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "database_instance_auto_minor_version_upgrade" {
+  type    = bool
+  default = false
+}
+
+variable "database_instance_publicly_accessible" {
+  type    = bool
+  default = false
 }

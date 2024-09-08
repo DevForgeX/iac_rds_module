@@ -17,10 +17,10 @@ resource "aws_db_instance" "main" {
   engine_version          = var.database_instance_engine_version
   instance_class          = var.database_instance_class
   allocated_storage       = var.database_instance_allocated_storage
-  max_allocated_storage   = var.database_instance_allocated_storage
+  max_allocated_storage   = var.database_instance_max_allocated_storage
   # db_name                 = var.database_db_name
-  username                = var.database_instance_db_username
-  password                = var.database_instance_db_password
+  username =  var.database_instance_db_username
+  password = var. var.database_instance_db_password
   parameter_group_name    = aws_db_parameter_group.main.name
   backup_retention_period = var.database_instance_backup_retention_period
   vpc_security_group_ids  = var.database_instance_vpc_security_group_ids
@@ -31,7 +31,13 @@ resource "aws_db_instance" "main" {
   storage_encrypted = var.database_instance_storage_encrypted
   # final_snapshot_identifier = var.database_instance_final_snapshot_identifier
   storage_type = var.database_instance_storage_type
-  publicly_accessible = true
+  publicly_accessible = var.database_instance_publicly_accessible
+  auto_minor_version_upgrade = var.database_instance_auto_minor_version_upgrade
+  performance_insights_enabled = var.database_instance_performance_insights_enabled
+  monitoring_interval = var.database_instance_monitoring_interval
+  monitoring_role_arn = var.database_instance_monitoring_role_arn
+  maintenance_window       = var.database_instance_maintenance_window
+  backup_window            = var.database_instance_backup_window
 
   timeouts {
     create = "1h"
@@ -45,4 +51,8 @@ resource "aws_db_instance" "main" {
       Name = "${var.global_var_org_tag}-${var.global_var_product_tag}-${var.global_var_environment_tag}-db"
     }
   )
+}
+
+data "aws_secretsmanager_secret_version" "this" {
+  secret_id = var.secretsmanager_secret_id
 }
