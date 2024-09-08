@@ -86,11 +86,11 @@ variable "db_instance_parameter_group_name" {
 }
 
 
-variable "database_instance_vpc_security_group_ids" {
-  type = list(string)
-  default = [ "sg-0b560917e4287612b" ]
-  description = "List Of Security Group For DB Cluster"
-}
+# variable "database_instance_vpc_security_group_ids" {
+#   type = list(string)
+#   default = [ "sg-0b560917e4287612b" ]
+#   description = "List Of Security Group For DB Cluster"
+# }
 
 variable "database_instance_storage_encrypted" {
   type = bool
